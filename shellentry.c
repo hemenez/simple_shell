@@ -3,7 +3,6 @@
  * main - function will handle most function calls
  * Return: function will always return 0
  */
-int _strcmp(char *s1, char *s2);
 
 int main(void)
 {
@@ -27,7 +26,7 @@ int main(void)
 			j = 0;
 			while (in[j].command != NULL)
 			{
-				if (_strcmp(commands[i], (in[i].command)) == 0)
+				if (_strcmp(commands[i], (in[j].command)) == 0)
 					(in[i].f)(buff, commands);
 				j++;
 			}
