@@ -3,19 +3,36 @@
  * main - function will handle most function calls
  * Return: function will always return 0
  */
+int _strcmp(char *s1, char *s2);
 
 int main(void)
 {
 	char *buff;
 	char **commands;
 	pid_t pid;
-	int status;
+	int status, i, j;
+	built in[] = {
+		{"exit", exitfxn},
+		{NULL, NULL},
+	};
 
 	while (1)
 	{
 		printf("TalkToMe$ ");
 		buff = getlinefxn();
 		commands = tokenfxn(buff);
+		i = 0;
+		while (commands != NULL && commands[i] != '\0')
+		{
+			j = 0;
+			while (in[j].command != NULL)
+			{
+				if (_strcmp(commands[i], (in[i].command)) == 0)
+					(in[i].f)(buff, commands);
+				j++;
+			}
+			i++;
+		}
 		pid = fork();
 		if (pid == -1)
 			perror("Error:");
