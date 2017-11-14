@@ -8,7 +8,7 @@
 
 void exitfxn(char *buff, char **commands)
 {
-	free(commands);
 	free(buff);
+	free(commands);
 	exit(0);
 }
