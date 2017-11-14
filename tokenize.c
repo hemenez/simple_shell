@@ -22,7 +22,7 @@ char **tokenfxn(char *buff)
 	index = 1;
 	while (token != NULL)
 	{
-		commands = _realloc(commands, (sizeof(char *) * (index + 2)));
+		commands = realloc(commands, (sizeof(char *) * (index + 2)));
 		if (commands == NULL)
 		{
 			free(buff);
