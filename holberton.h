@@ -2,13 +2,15 @@
 #define _HOLBERTON_H_
 
 /**
- *
+ * struct op - represents structure to find builtins
+ * @command: represents command to be matched w fxn
+ * @f: represents function to be matched according to command
  */
 
 typedef struct op
 {
 	char *command;
-	void(*f)(char *buff, char **commands);
+	void (*f)(char *buff, char **commands);
 } built;
 
 #include <stdio.h>
