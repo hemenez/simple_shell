@@ -21,9 +21,12 @@ typedef struct op
 #include <sys/wait.h>
 #define DELIM " \t\r\n\a"
 
+extern char **environ;
+
 char *getlinefxn();
 char **tokenfxn(char *buff);
 int _strcmp(char *s1, char *s2);
 void exitfxn(char *buff, char **commands);
+void envfxn(char *buff, char **commands);
 
 #endif
