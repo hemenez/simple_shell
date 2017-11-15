@@ -12,6 +12,7 @@ int main(void)
 	int status, i, j;
 	built in[] = {
 		{"exit", exitfxn},
+		{"env", envfxn},
 		{NULL, NULL},
 	};
 
@@ -27,11 +28,14 @@ int main(void)
 			while (in[j].command != NULL)
 			{
 				if (_strcmp(commands[i], (in[j].command)) == 0)
-					(in[i].f)(buff, commands);
+				{
+					(in[j].f)(buff, commands);
+				}
 				j++;
 			}
 			i++;
 		}
+		continue;
 		pid = fork();
 		if (pid == -1)
 			perror("Error:");
