@@ -18,7 +18,7 @@ int main(void)
 
 	while (1)
 	{
-		printf("TalkToMe$ ");
+		write(STDOUT_FILENO, "TalkToMe$ ", 11);
 		buff = getlinefxn();
 		commands = tokenfxn(buff);
 		i = 0;
@@ -35,16 +35,16 @@ int main(void)
 			}
 			i++;
 		}
-		continue;
 		pid = fork();
 		if (pid == -1)
 			perror("Error:");
 		if (pid == 0)
 		{
-			if (commands[0] == NULL)
-				break;
-			execve(commands[0], commands, NULL);
-			perror("Error");
+			if (commands[0] != NULL)
+			{
+				execve(commands[0], commands, NULL);
+				perror("Error");
+			}
 		}
 		else if (pid > 0)
 		{
