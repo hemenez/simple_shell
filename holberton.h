@@ -28,5 +28,6 @@ char **tokenfxn(char *buff);
 int _strcmp(char *s1, char *s2);
 void exitfxn(char *buff, char **commands);
 void envfxn(char *buff, char **commands);
+int builtinfxn(char *buff, char **commands);
 
 #endif
