@@ -19,7 +19,7 @@ char *getlinefxn()
 	if (x == -1)
 	{
 		free(buff);
-		return (NULL);
+		exit(0);
 	}
 	return (buff);
 }
