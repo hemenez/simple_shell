@@ -49,6 +49,8 @@ int main(void)
 	{
 		write(STDOUT_FILENO, "TalkToMe$ ", 11);
 		buff = getlinefxn();
+		if (buff == NULL)
+			break;
 		commands = tokenfxn(buff);
 		x = builtinfxn(buff, commands);
 		if (x == 0)
