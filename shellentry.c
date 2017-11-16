@@ -63,6 +63,8 @@ int main(void)
 				execve(commands[0], commands, NULL);
 				perror("Error");
 			}
+			else
+				break;
 		}
 		else if (pid > 0)
 		{
