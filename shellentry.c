@@ -24,6 +24,8 @@ int builtinfxn(char *buff, char **commands)
 			if (_strcmp(commands[i], (in[j].command)) == 0)
 			{
 				(in[j].f)(buff, commands);
+				free(buff);
+				free(commands);
 				return (0);
 			}
 			j++;
@@ -49,6 +51,12 @@ int main(void)
 		if (buff == NULL)
 			break;
 		commands = tokenfxn(buff);
+		if (commands == NULL)
+		{
+			free(buff);
+			free(commands);
+			break;
+		}
 		x = builtinfxn(buff, commands);
 		if (x == 0)
 			continue;
