@@ -1,11 +1,11 @@
-##Simple_Shell Project
-###Synopsis
+## Simple_Shell Project
+### Synopsis
 The objective of the simple_shell project is learn how the base functions of the shell work and implement them ourselves to create our own simple interactive shell.
 
-###Environment
+### Environment
 Our simple_shell project was tested and compiled on `Ubuntu 14.04 (trusty64)` via Vagrant run through VirtualBox.
 
-###Repository Contents
+### Repository Contents
 This repository contains the following files:
 | **File** | **Description** |
 | -------- | --------------- |
@@ -20,7 +20,7 @@ This repository contains the following files:
 | tokenize.c | Tokenizes the user inputted arguments to be able to check for commands |
 | utilizers.c | Contains more custom helper functions like strlen |
 
-###Description of functions
+### Description of functions
 | **Function** | **Description** |
 | -------- | ----------- |
 | `char *getlinefxn()` | This function gets the user input and stores it in a buffer to be tokenized |
@@ -37,17 +37,17 @@ This repository contains the following files:
 | `char *_strcat(char *dest, char *src)` | Custom function to concatenate two strings |
 | `int _strlen(char *s)` | Custom function to get the length of a string |
 
-##Compilation
+### Compilation
 This code was compiled using GNU Compiler Collection (gcc) with the following flags: `gcc -Wall -Werror -Wextra -pedantic -g3 *.c -o hsh`
-######Example commands
+###### Example commands
 ```
 TalkToMe$ ls
 AUTHORS envfxn.c exitfxn.c handlepath.c holberton.h linestore.c README.md shellentry.c strcompare.c tokenize.c utilizers.c
 TalkToMe$ 
 ```
-##Notes
+### Notes
 This shell is a very simple interactive shell, it does not handle special characters
 
-##Authors
+### Authors
 [Jacob Biehler](https://github.com/biehlerj)
 [Lindsey Hemenez](https://github.com/hemenez)
