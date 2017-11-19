@@ -51,12 +51,6 @@ int main(void)
 		if (buff == NULL)
 			break;
 		commands = tokenfxn(buff);
-		if (commands == NULL)
-		{
-			free(buff);
-			free(commands);
-			break;
-		}
 		x = builtinfxn(buff, commands);
 		if (x == 0)
 			continue;
