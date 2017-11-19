@@ -30,8 +30,8 @@ int _strcmp(char *s1, char *s2);
 void exitfxn(char *buff, char **commands);
 void envfxn(char *buff, char **commands);
 int builtinfxn(char *buff, char **commands);
-
-
+char *loopenvironment();
+char *concat(char *token, char **tokens, char *commands);
 char *_strcpy(char *dest, char *src);
 char *_strdup(char *str);
 int _strcmp(char *s1, char *s2);
