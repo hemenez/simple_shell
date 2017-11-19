@@ -80,9 +80,9 @@ int main(void)
 			pid = wait(&status);
 			if (pid < 0)
 				perror("wait");
+			free(buff);
+			free(commands);
 		}
 	}
-	free(buff);
-	free(commands);
 	return (0);
 }
