@@ -14,6 +14,7 @@ typedef struct op
 } built;
 
 #include <stdio.h>
+#include <sys/stat.h>
 #include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -29,5 +30,13 @@ int _strcmp(char *s1, char *s2);
 void exitfxn(char *buff, char **commands);
 void envfxn(char *buff, char **commands);
 int builtinfxn(char *buff, char **commands);
+char *loopenvironment();
+char *concat(char *token, char **tokens, char *commands);
+char *_strcpy(char *dest, char *src);
+char *_strdup(char *str);
+int _strcmp(char *s1, char *s2);
+char *getpath(char *commands);
+char *_strcat(char *dest, char *src);
+int _strlen(char *s);
 
 #endif
