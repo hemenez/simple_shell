@@ -40,11 +40,7 @@ int builtinfxn(char *buff, char **commands)
 
 int main(void)
 {
-	char *buff;
-	char **commands;
-	pid_t pid;
-	int status, x, y;
-	struct stat st;
+	char *buff, **commands;	pid_t pid; int status, x, y; struct stat st;
 
 	while (1)
 	{
@@ -70,11 +66,8 @@ int main(void)
 				perror("Error");
 			}
 			else
-			{
-				free(buff);
-				free(commands);
-			}
-		 }
+				free(buff); free(commands);
+		}
 		else if (pid > 0)
 		{
 			pid = wait(&status);
