@@ -61,15 +61,20 @@ int main(void)
 			perror("Error:");
 		if (pid == 0)
 		{
-			y = stat(commands[0], &st);
-			if (y != 0)
-				commands[0] = getpath(commands[0]);
 			if (commands[0] != NULL)
 			{
+				y = stat(commands[0], &st);
+				if (y != 0)
+					commands[0] = getpath(commands[0]);
 				execve(commands[0], commands, NULL);
 				perror("Error");
 			}
-		}
+			else
+			{
+				free(buff);
+				free(commands);
+			}
+		 }
 		else if (pid > 0)
 		{
 			pid = wait(&status);
