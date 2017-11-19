@@ -1,4 +1,11 @@
 #include "holberton.h"
+/**
+ * *_strcpy - function will copy a string from one pointer to another
+ * Return: function will return string to dest
+ * @dest: represents pointer that will receive the copied string
+ * @src: represents pointer that holds the string to be copied
+ */
+
 char *_strcpy(char *dest, char *src)
 {
 	int a;
@@ -15,6 +22,12 @@ char *_strcpy(char *dest, char *src)
 	return (dest);
 }
 
+/**
+ * _strdup - function will return pointer to copied string
+ * @str: represents string to be copied
+ * Return: function will return destination string
+ */
+
 char *_strdup(char *str)
 {
 	char *ptr;
@@ -27,22 +40,13 @@ char *_strdup(char *str)
 	return (ptr);
 }
 
-char *_strncpy(char *dest, char *src, int n)
-{
-	int a = 0;
+/**
+ * *_strcat - Function will concatenate two strings
+ * @src: represents the string that will be added
+ * @dest: represents the final appended string
+ * Return: the function will return the final appended string
+ */
 
-	while (src[a] != '\0' && a < n)
-	{
-		dest[a] = src[a];
-		a++;
-	}
-	while (a < n)
-	{
-		dest[a] = '\0';
-		a++;
-	}
-	return (dest);
-}
 char *_strcat(char *dest, char *src)
 {
 	int a;
@@ -64,6 +68,13 @@ char *_strcat(char *dest, char *src)
 	dest[b] = '\0';
 	return (dest);
 }
+
+/**
+ * _strlen - function will return the length of a string
+ * Return: function will return zero if compiled correctly
+ * @s: represents address given from main function
+ */
+
 int _strlen(char *s)
 {
 	int length;
@@ -76,21 +87,22 @@ int _strlen(char *s)
 	}
 	return (length);
 }
-extern char **environ;
+
+/**
+ * getpath - function will find the path and append the desired command
+ * @commands: represents pointer to first index of command
+ * Return: function will return newly concatenated pointer
+ */
+
 char *getpath(char *commands)
 {
 	struct stat st;
 	char *stri = "PATH";
-	int i, x, k;
-	int index;
-	char *path = NULL;
-	char *finalpath = NULL;
-	char *token = NULL;
-	char **tokens = NULL;
-	char *copy;
+	int i, x, k, index;
+	char *path = NULL, *finalpath = NULL, *token = NULL, *copy, **tokens = NULL;
 
 	i = 0;
-	while(environ[i] != NULL)
+	while (environ[i] != NULL)
 	{
 		copy = _strdup(environ[i]);
 		if (copy == NULL)
@@ -121,7 +133,7 @@ char *getpath(char *commands)
 	token = strtok(finalpath, ":=");
 	tokens[0] = token;
 	index = 1;
-	while(token != NULL)
+	while (token != NULL)
 	{
 		tokens[index] = token;
 		token = strtok(NULL, ":=");
@@ -151,7 +163,7 @@ char *getpath(char *commands)
 		if (x == 0)
 		{
 			free(token);
-			return(tokens[k]);
+			return (tokens[k]);
 		}
 		k++;
 	}
