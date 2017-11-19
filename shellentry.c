@@ -42,7 +42,7 @@ int builtinfxn(char *buff, char **commands)
 
 int main(void)
 {
-	char *buff, **commands;	pid_t pid; int status, x, y; struct stat st;
+	char *buff = NULL, **commands;	pid_t pid; int status, x, y; struct stat st;
 
 	while (1)
 	{
