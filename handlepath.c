@@ -27,30 +27,6 @@ char *_strdup(char *str)
 	return (ptr);
 }
 
-char *_strstr(char *haystack, char *needle)
-{
-	unsigned int i;
-	unsigned int j;
-	unsigned int k;
-
-	i = 0;
-	while (haystack[i] != '\0')
-	{
-		k = i;
-		for (j = 0; needle[j] != '\0'; j++)
-		{
-			if (haystack[k] == needle[j])
-				k++;
-			else
-				break;
-		}
-		if (needle[j] == '\0')
-			return (&haystack[i]);
-		i++;
-	}
-	return (NULL);
-}
-
 char *_strncpy(char *dest, char *src, int n)
 {
 	int a = 0;
@@ -107,8 +83,8 @@ char *getpath(char *commands)
 	char *stri = "PATH";
 	int i, x, k;
 	int index;
-	char *path;
-	char *finalpath;
+	char *path = NULL;
+	char *finalpath = NULL;
 	char *token = NULL;
 	char **tokens = NULL;
 	char *copy;
@@ -117,6 +93,11 @@ char *getpath(char *commands)
 	while(environ[i] != NULL)
 	{
 		copy = _strdup(environ[i]);
+		if (copy == NULL)
+		{
+			free(copy);
+			return (NULL);
+		}
 		path = strtok(copy, "=");
 		if (_strcmp(path, stri) == 0)
 		{
@@ -125,7 +106,18 @@ char *getpath(char *commands)
 		i++;
 	}
 	token = malloc(sizeof(char) * 1024);
+	if (token == NULL)
+	{
+		free(copy);
+		return (NULL);
+	}
 	tokens = malloc(sizeof(char) * 1024);
+	if (tokens == NULL)
+	{
+		free(copy);
+		free(token);
+		return (NULL);
+	}
 	token = strtok(finalpath, ":=");
 	tokens[0] = token;
 	index = 1;
@@ -140,11 +132,31 @@ char *getpath(char *commands)
 	while (tokens != NULL)
 	{
 		_strcat(tokens[k], "/");
+		if (tokens[k] == NULL)
+		{
+			free(copy);
+			free(token);
+			free(tokens);
+			return (NULL);
+		}
 		_strcat(tokens[k], commands);
+		if (tokens[k] == NULL)
+		{
+			free(copy);
+			free(token);
+			free(tokens);
+			return (NULL);
+		}
 		x = stat(tokens[k], &st);
 		if (x == 0)
+		{
+			free(token);
 			return(tokens[k]);
+		}
 		k++;
 	}
+	free(copy);
+	free(token);
+	free(tokens);
 	return (NULL);
 }
