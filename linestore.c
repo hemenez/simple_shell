@@ -21,5 +21,10 @@ char *getlinefxn()
 		free(buff);
 		return (NULL);
 	}
+	if (x == 1)
+	{
+		free(buff);
+		return (NULL);
+	}
 	return (buff);
 }
