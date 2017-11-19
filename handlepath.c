@@ -1,16 +1,16 @@
 #include "holberton.h"
 /**
- * getpath - function will find the path and append the desired command
- * @commands: represents pointer to first index of command
- * Return: function will return newly concatenated pointer
+ * loopenvironment - function will loop through environment
+ * Return: function will return path of match
  */
 
-char *getpath(char *commands)
+char *loopenvironment()
 {
-	struct stat st;
+	int i;
+	char *path = NULL;
+	char *finalpath = NULL;
+	char *copy;
 	char *stri = "PATH";
-	int i, x, k, index;
-	char *path = NULL, *finalpath = NULL, *token = NULL, *copy, **tokens = NULL;
 
 	i = 0;
 	while (environ[i] != NULL)
@@ -28,16 +28,75 @@ char *getpath(char *commands)
 		}
 		i++;
 	}
+	free(copy);
+	return (finalpath);
+}
+/**
+ * concat - function will append command to token
+ * @token: represents single pointer token
+ * @tokens: represents double pointer token
+ * @commands: represents command to be added
+ * Return: function returns concatenated string
+ */
+
+char *concat(char *token, char **tokens, char *commands)
+{
+	int k;
+	int x;
+	struct stat st;
+
+	k = 0;
+	while (tokens != NULL)
+	{
+		_strcat(tokens[k], "/");
+		if (tokens[k] == NULL)
+		{
+			free(token);
+			free(tokens);
+			return (NULL);
+		}
+		_strcat(tokens[k], commands);
+		if (tokens[k] == NULL)
+		{
+			free(token);
+			free(tokens);
+			return (NULL);
+		}
+		x = stat(tokens[k], &st);
+		if (x == 0)
+		{
+			free(token);
+			return (tokens[k]);
+		}
+		k++;
+	}
+	return (NULL);
+}
+
+
+/**
+ * getpath - function will find the path and append the desired command
+ * @commands: represents pointer to first index of command
+ * Return: function will return newly concatenated pointer
+ */
+
+char *getpath(char *commands)
+{
+	int index;
+	char *finalpath, *token = NULL, **tokens = NULL;
+	char *holder;
+
+	finalpath = loopenvironment();
+	if (finalpath == NULL)
+		return (NULL);
 	token = malloc(sizeof(char) * 1024);
 	if (token == NULL)
 	{
-		free(copy);
 		return (NULL);
 	}
 	tokens = malloc(sizeof(char) * 1024);
 	if (tokens == NULL)
 	{
-		free(copy);
 		free(token);
 		return (NULL);
 	}
@@ -51,34 +110,15 @@ char *getpath(char *commands)
 		index++;
 	}
 	tokens[index] = NULL;
-	k = 0;
-	while (tokens != NULL)
+	holder = concat(token, tokens, commands);
+	if (holder == NULL)
 	{
-		_strcat(tokens[k], "/");
-		if (tokens[k] == NULL)
-		{
-			free(copy);
-			free(token);
-			free(tokens);
-			return (NULL);
-		}
-		_strcat(tokens[k], commands);
-		if (tokens[k] == NULL)
-		{
-			free(copy);
-			free(token);
-			free(tokens);
-			return (NULL);
-		}
-		x = stat(tokens[k], &st);
-		if (x == 0)
-		{
-			free(token);
-			return (tokens[k]);
-		}
-		k++;
+		free(token);
+		free(tokens);
+		return (NULL);
 	}
-	free(copy);
+	else
+		return (holder);
 	free(token);
 	free(tokens);
 	return (NULL);
