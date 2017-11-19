@@ -40,6 +40,5 @@ char **token_help(char *path, const char *delimiter, int path_count);
 int _strlen(char *s);
 char *_strcat(char *dest, char *src);
 char *_strdup(char *str);
-void path_token_free(char **path_token);
 
 #endif

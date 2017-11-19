@@ -40,8 +40,8 @@ int builtinfxn(char *buff, char **commands)
 
 int main(void)
 {
-	char *buff;
-	char **commands;
+	char *buff = NULL;
+	char **commands = NULL;
 	pid_t pid;
 	int status, x;
 
@@ -58,6 +58,7 @@ int main(void)
 		pid = fork();
 		if (pid == -1)
 			perror("Error:");
+		commands[0] = find_path(commands[0]);
 		if (pid == 0)
 		{
 			if (commands[0] != NULL)
@@ -71,9 +72,9 @@ int main(void)
 			pid = wait(&status);
 			if (pid < 0)
 				perror("wait");
+			free(buff);
+			free(commands);
 		}
 	}
-	free(buff);
-	free(commands);
 	return (0);
 }

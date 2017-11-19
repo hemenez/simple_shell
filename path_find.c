@@ -27,11 +27,11 @@ char *find_path(char *command)
 		s = stat(path, &buf);
 		if (s == 0)
 		{
-			path_token_free(path_token);
+			free(path_token);
 			return (path);
 		}
 	}
-	path_token_free(path_token);
+	free(path_token);
 	return (NULL);
 }
 

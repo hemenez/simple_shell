@@ -77,33 +77,14 @@ char *_strcat(char *dest, char *src)
  */
 char *_strdup(char *str)
 {
-	int length;
 	int index;
 	char *holder_array;
 
-	if (str == NULL)
-		return (NULL);
-	for (length = 0; str[length] != '\0'; length++)
-	{}
 	holder_array = malloc(BUFFERSIZE);
 	if (holder_array == NULL)
 		return (NULL);
-	for (index = 0; index < length; index++)
+	for (index = 0; str[index] != '\0'; index++)
 		holder_array[index] = str[index];
 	holder_array[index] = '\0';
 	return (holder_array);
-}
-
-/**
- * path_token_free - frees path_token
- * @path_token: address to be freed
- * Return: nothing (void)
- */
-void path_token_free(char **path_token)
-{
-	unsigned int j;
-
-	for (j = 0; path_token[j] != NULL; j++)
-		free(path_token[j]);
-	free(path_token);
 }
