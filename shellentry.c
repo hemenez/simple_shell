@@ -43,7 +43,8 @@ int main(void)
 	char *buff;
 	char **commands;
 	pid_t pid;
-	int status, x;
+	int status, x, y;
+	struct stat st;
 
 	while (1)
 	{
@@ -60,6 +61,9 @@ int main(void)
 			perror("Error:");
 		if (pid == 0)
 		{
+			y = stat(commands[0], &st);
+			if (y != 0)
+				commands[0] = getpath(commands[0]);
 			if (commands[0] != NULL)
 			{
 				execve(commands[0], commands, NULL);
