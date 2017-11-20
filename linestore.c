@@ -16,7 +16,18 @@ char *getlinefxn()
 		perror("Error");
 		return (NULL);
 	}
-	if (x == -1)
+	if (x == EOF)
+	{
+		free(buff);
+		write(STDOUT_FILENO, "\n", 1);
+		exit(0);
+	}
+	if (x == 1)
+	{
+		free(buff);
+		return (NULL);
+	}
+	if (x == 0)
 	{
 		free(buff);
 		return (NULL);
