@@ -28,6 +28,12 @@ The simple_shell is a simple command line interpreter for the system. It takes i
 .BI Overview
 The shell is a program that reads lines from a file or the terminal, interprets them, and executes other commands. The simple_shell is a command line interface (CLI) that uses alphanumeric characters typed into the command line to provide instructions and data to the operating system. The simple_shell takes in a variety of commands including builtins and standard commands like ls, echo, pwd, etc.
 .PP
+.B About the simple_shell
+.PP
+The simple_shell is based on the shell created by Ken Thompson at Bell Labs. The first shell
+.I (sh)
+was distributed with versions 1 through 6 of Unix. The Unix shell laid the groundwork for modern Unix shells with things such as piping, simple control structures, and wildcarding. The simple_shell is much more rudimentary than the Thompson shell as it can only take commands, written with the full path or by searching for the path, and options. The simple_shell mirrors as closely as possible the Thompson shell.
+.PP
 .B Invocation
 When ./hsh is called the shell is put into interactive mode. An interactive shell prompts before each command and handles programming and command errors differently. The command line interprets arguments passed to it. If the command line arguments besides options have been specified, then the simple_shell treats the first argument as the name of the file from which to read commands (shell script), and the remaining arguments are set as parameters of the shell. Otherwise the simple_shell reads the commands from standard input. 
 .PP
