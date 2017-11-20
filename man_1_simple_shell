@@ -47,7 +47,7 @@ When the simple_shell searches for a command, it first looks to see if it has a 
 .PP
 .B Built-ins
 env 	prints the environment
-exit	exits the interactive simple_shell
+exit	exits the interactive simple_shell and any processes running.
 .PP
 .SH EXIT STATUS
 Errors that are detected by the simple_shell, ie spelling, will cause the shell to exit with zero status.

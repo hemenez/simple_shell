@@ -115,7 +115,7 @@ This repository contains the following files:
 | -------- | --------------- |
 | AUTHORS | Contains the authors of the project |
 | envfxn.c | Contains the function to print the environment |
-| exitfxn.c | Our built-in exit function to exit programs and the shell |
+| exitfxn.c | Our built-in exit function to close active processes and exit the shell |
 | handlepath.c | Handles the path so the simple_shell can take commands like ls, pwd, echo, etc. |
 | holberton.h | Contains prototypes, structs, libraries used, and defines macros. |
 | linestore.c | Handles getting the user arguments and stores them in a buffer |
@@ -130,7 +130,7 @@ This repository contains the following files:
 | `char *getlinefxn()` | This function gets the user input and stores it in a buffer to be tokenized |
 | `char **tokenfxn(char *buff)` | This function tokenizes the buffer that stores the user input so it can be searched for commands |
 | `int _strcmp(char *s1, char *s2)` | Compares two strings, if the strings match it returns 0 otherwise it returns the difference of the first differing letter |
-| `void exitfxn(char *buff, char **commands)` | This function exits out of the active processes. |
+| `void exitfxn(char *buff, char **commands)` | This function exits out of the active processes and the simple shell. |
 | `void envfxn(char *buff, char **commands)` | This function prints the environment |
 | `int builtinfxn(char *buff, char **commands)` | This function checks to see if the command is a shell built-in. |
 | `char *loopenvironment()` | This function loops through the environment |
