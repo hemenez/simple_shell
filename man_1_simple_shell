@@ -4,7 +4,7 @@
 .SH NAME
 simple_shell - command interpreter (shell).
 .SH SYNOPSIS
-.BI ./hsh [enter/return] command [option] [option] [file/directory name] ...
+.B ./hsh [enter/return] command [option] [option] [file/directory name] ...
 .PP
 .B #include "holberton.h"
 .PP
@@ -47,15 +47,24 @@ exit	exits the interactive simple_shell
 Errors that are detected by the simple_shell, ie spelling, will cause the shell to exit with zero status.
 .SH EXAMPLE
 ./hsh
+.PP
 TalkToMe$ ls -l
+.PP
 [lists the files and directories in the current directory in long format]
 TalkToMe$ pwd
+.PP
 [prints the current working directory]
+.PP
 TalkToMe$ exit
+.PP
 [exits the first command]
+.PP
 TalkToMe$ exit
+.PP
 [exits the second command]
+.PP
 TalkToMe$ exit
+.PP
 [exits the simple_shell]
 .SH SEE ALSO
 .R dash(1) dash
