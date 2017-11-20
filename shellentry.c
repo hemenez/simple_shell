@@ -76,23 +76,25 @@ int main(void)
 		pid = fork();
 		if (pid == -1)
 			perror("Error:");
-		if (pid == 0)
+		else if (pid == 0)
 		{
 			if (commands[0] != NULL)
 			{
 				y = stat(commands[0], &st);
 				if (y != 0)
+				{
 					commands[0] = getpath(commands[0]);
+				}
 				execve(commands[0], commands, NULL);
 				perror("Error");
 			}
 			else
 				free(buff); free(commands);
 		}
-		else if (pid > 0)
+		else
 		{
-			pid = wait(&status);
 			piderror(pid, buff, commands);
+			wait(&status);
 		}
 	}
 	return (0);
