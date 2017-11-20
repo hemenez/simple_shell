@@ -1,6 +1,110 @@
 ## Simple_Shell Project
+
 ### Synopsis
 The objective of the simple_shell project is learn how the base functions of the shell work and implement them ourselves to create our own simple interactive shell.
+
+### Learning Objectives
+Through this project the authors learned:
+* Who designed and implemented the original UNIX operating system
+* Who wrote the first version of the UNIX shell
+* Who invented the B programming language, which is the predecessor to the C programming language
+* Who Ken Thompson is
+* How the shell works
+* What a pid and ppid are
+* How to manipulate the environment of the current process
+* What the difference between a function and a system call is
+* How to create processes
+* What the 3 prototypes of main are
+* How the shell uses the environment variable PATH to find the programs
+* How to execute programs with the execve system call
+* How to suspend a process until one or all of its children terminates
+* What end-of-file (EOF) is.
+
+### Requirements
+* Allowed editors: `vi`, `vim`, `emacs`
+* All files must be compiled on Ubuntu 14.04 LTS
+* Your C programs and functions must be compiled with gcc 4.8.4 using the flags `-Wall` `-Werror` `-Wextra` and `-pedantic`
+* All of our files should end with a new line
+* A `README.md` at the root of the folder of the project is mandatory
+* No more than 5 functions per file
+* All our header files should be guarded
+
+### Output
+* Unless specified our program **must have the exact same output** as `sh`(`/bin/sh`) as well as the exact same error output.
+* The only difference is when we print an error, the name of the program must be equivalent to our `argv[0]`(see below).
+Example of error with `sh`:
+```
+$ echo "qwerty" | /bin/sh
+/bin/sh: 1: qwerty: not found
+$ echo "qwerty" | /bin/../bin/sh
+/bin/../bin/sh: 1: qwerty: not found
+$
+```
+Same error with our program `hsh`:
+```
+$ echo "qwerty" | ./hsh
+./hsh: 1: qwerty: not found
+$ echo "qwerty" | ./././hsh
+./././hsh: 1: qwerty: not found
+$
+```
+
+### List of allowed functions and system calls
+* `access`(man 2 access)
+* `chdir`(man 2 chdir)
+* `close`(man 2 close)
+* `closedir`(man 3 closedir)
+* `execve`(man 2 execve)
+* `exit`(man 3 exit)
+* `fork`(man 2 fork)
+* `free`(man 3 free)
+* `stat`(`__xstat`)(man 2 lstat)
+* `lstat`(`__lxstat`)(man 2 lstat)
+* `fstat`(`__fxstat`)(man 2 fstat)
+* `getcwd`(man 3 getcwd)
+* `getline`(man 3 getline)
+* `kill`(man 2 kill)
+* `malloc`(man 3 malloc)
+* `open`(man 2 open)
+* `opendir`(man 3 opendir)
+* `perror`(man 3 perror)
+* `read`(man 2 read)
+* `readdir`(man 3 readdir)
+* `signal`(man 2 signal)
+* `strtok`(man 3 strtok)
+* `wait`(man 2 pid)
+* `waitpid`(man 2 waitpid)
+* `wait3`(man 2 wait3)
+* `wait4`(man 2 wait4)
+* `write`(man 2 write)
+* `_exit`(man 2 `_exit`)
+* `isatty`(man 3 isatty)
+* `fflush`(man 3 fflush)
+
+### Testing
+Our shell should work like this in interactive mode:
+```
+$ ./hsh
+($) /bin/ls
+hsh main.c shell.c
+($)
+($) exit
+$
+```
+But also in non-interactive mode:
+```
+$ echo "/bin/ls" | ./hsh
+hsh main.c shell.c test_ls_2
+$
+$ cat test_ls_2
+/bin/ls
+/bin/ls
+$
+$ cat test_ls_2 | ./hsh
+hsh main.c shell.c test_ls_2
+hsh main.c shell.c test_ls_2
+$
+```
 
 ### Environment
 Our simple_shell project was tested and compiled on `Ubuntu 14.04 (trusty64)` via Vagrant run through VirtualBox.
