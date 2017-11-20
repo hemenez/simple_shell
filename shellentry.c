@@ -76,7 +76,7 @@ int main(void)
 		pid = fork();
 		if (pid == -1)
 			perror("Error:");
-		else if (pid == 0)
+		if (pid == 0)
 		{
 			if (commands[0] != NULL)
 			{
@@ -91,7 +91,7 @@ int main(void)
 			else
 				free(buff); free(commands);
 		}
-		else
+		else if (pid > 0)
 		{
 			piderror(pid, buff, commands);
 			wait(&status);
