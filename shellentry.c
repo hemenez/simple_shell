@@ -21,7 +21,8 @@ int builtinfxn(char *buff, char **commands)
 		j = 0;
 		while (in[j].command != NULL)
 		{
-			if (_strcmp(commands[i], (in[j].command)) == 0)
+			if ((_strcmp(commands[i], (in[j].command)) == 0) &&
+			    (_strlen(commands[i]) == _strlen(in[j].command)))
 			{
 				(in[j].f)(buff, commands);
 				free(buff);
