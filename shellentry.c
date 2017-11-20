@@ -37,13 +37,30 @@ int builtinfxn(char *buff, char **commands)
 }
 
 /**
+ * piderror - function will evaluate if there's a process error
+ * @pid: represents process to be eval'd
+ * @buff: represents pointer to incoming buffer
+ * @commands: represents commands to be executed
+ * Return: function returns void
+ */
+
+void piderror(pid_t pid, char *buff, char **commands)
+{
+	if (pid < 0)
+		perror("Wait");
+	free(buff);
+	free(commands);
+}
+
+/**
  * main - function will handle most function calls
  * Return: function will always return 0
  */
 
 int main(void)
 {
-	char *buff = NULL, **commands;	pid_t pid; int status, x, y; struct stat st;
+	char *buff = NULL, **commands; pid_t pid; int status, count, x, y;
+	struct stat st;
 
 	while (1)
 	{
@@ -51,7 +68,8 @@ int main(void)
 		buff = getlinefxn();
 		if (buff == NULL)
 			continue;
-		commands = tokenfxn(buff);
+		count = ptrcounter(buff);
+		commands = tokenfxn(buff, count);
 		x = builtinfxn(buff, commands);
 		if (x == 0)
 			continue;
@@ -74,10 +92,7 @@ int main(void)
 		else if (pid > 0)
 		{
 			pid = wait(&status);
-			if (pid < 0)
-				perror("wait");
-			free(buff);
-			free(commands);
+			piderror(pid, buff, commands);
 		}
 	}
 	return (0);
