@@ -59,9 +59,6 @@ void piderror(pid_t pid, char *buff, char **commands)
 
 int main(void)
 {
-	char *buff = NULL, **commands; pid_t pid; int status, count, x, y;
-	struct stat st;
-
 	while (1)
 	{
 		write(STDOUT_FILENO, "TalkToMe$ ", 11);
@@ -76,6 +73,7 @@ int main(void)
 		pid = fork();
 		if (pid == -1)
 			perror("Error:");
+		commands[0] = find_path(commands[0]);
 		if (pid == 0)
 		{
 			if (commands[0] != NULL)

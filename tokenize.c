@@ -59,6 +59,5 @@ char **tokenfxn(char *buff, int count)
 		commands[index] = token;
 		index++;
 	}
-	commands[index] = NULL;
 	return (commands);
 }
