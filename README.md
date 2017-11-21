@@ -1,7 +1,7 @@
 ## Simple_Shell Project
 
 ## Synopsis
-Thank you for taking the time to check out our Simple Shell project. This project was completed with the help of Holberton School. It is based on the initial UNIX shell that was originally created by Ken Thompson. This project is seen as a right of passage in the Holberton culture and it was an honor having the opportunity to do it.
+Thank you for taking the time to check out our Simple Shell project. This project was completed with the help of Holberton School. It is based on the initial UNIX shell that was originally created by Ken Thompson. This project is seen as a right of passage in the Holberton culture and it was an honor having the opportunity to do it. Please note: this project is still currently in the works as well as this README. If you see any missing information that you would like to know more of, please email 252@holbertonschool.com.
 
 ## Learning Objectives
 Through this project the authors learned:
@@ -23,7 +23,7 @@ Through this project the authors learned:
 ## Requirements
 * Allowed editors: `vi`, `vim`, `emacs`
 * All files must be compiled on Ubuntu 14.04 LTS
-* Your C programs and functions must be compiled with gcc 4.8.4 using the flags `-Wall` `-Werror` `-Wextra` and `-pedantic`
+* C programs and functions must be compiled with gcc 4.8.4 using the flags `-Wall` `-Werror` `-Wextra` and `-pedantic`
 * All of our files should end with a new line
 * A `README.md` at the root of the folder of the project is mandatory
 * No more than 5 functions per file
@@ -31,23 +31,7 @@ Through this project the authors learned:
 
 ## Output
 * Unless specified our program **must have the exact same output** as `sh`(`/bin/sh`) as well as the exact same error output.
-* The only difference is when we print an error, the name of the program must be equivalent to our `argv[0]`(see below).
-Example of error with `sh`:
-```
-$ echo "qwerty" | /bin/sh
-/bin/sh: 1: qwerty: not found
-$ echo "qwerty" | /bin/../bin/sh
-/bin/../bin/sh: 1: qwerty: not found
-$
-```
-Same error with our program `hsh`:
-```
-$ echo "qwerty" | ./hsh
-./hsh: 1: qwerty: not found
-$ echo "qwerty" | ./././hsh
-./././hsh: 1: qwerty: not found
-$
-```
+* The only difference is when we print an error, the name of the program must be equivalent to our `argv[0]`.
 
 ## Allowed Functions
 * `access`(man 2 access)
@@ -94,14 +78,6 @@ $
 But also in non-interactive mode:
 ```
 $ echo "/bin/ls" | ./hsh
-hsh main.c shell.c test_ls_2
-$
-$ cat test_ls_2
-/bin/ls
-/bin/ls
-$
-$ cat test_ls_2 | ./hsh
-hsh main.c shell.c test_ls_2
 hsh main.c shell.c test_ls_2
 $
 ```
