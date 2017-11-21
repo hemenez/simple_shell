@@ -1,9 +1,9 @@
 ## Simple_Shell Project
 
-### Synopsis
-The objective of the simple_shell project is learn how the base functions of the shell work and implement them ourselves to create our own simple interactive shell.
+## Synopsis
+Thank you for taking the time to check out our Simple Shell project. This project was completed with the help of Holberton School. It is based on the initial UNIX shell that was originally created by Ken Thompson. This project is seen as a right of passage in the Holberton culture and it was an honor having the opportunity to do it.
 
-### Learning Objectives
+## Learning Objectives
 Through this project the authors learned:
 * Who designed and implemented the original UNIX operating system
 * Who wrote the first version of the UNIX shell
@@ -20,7 +20,7 @@ Through this project the authors learned:
 * How to suspend a process until one or all of its children terminates
 * What end-of-file (EOF) is.
 
-### Requirements
+## Requirements
 * Allowed editors: `vi`, `vim`, `emacs`
 * All files must be compiled on Ubuntu 14.04 LTS
 * Your C programs and functions must be compiled with gcc 4.8.4 using the flags `-Wall` `-Werror` `-Wextra` and `-pedantic`
@@ -29,7 +29,7 @@ Through this project the authors learned:
 * No more than 5 functions per file
 * All our header files should be guarded
 
-### Output
+## Output
 * Unless specified our program **must have the exact same output** as `sh`(`/bin/sh`) as well as the exact same error output.
 * The only difference is when we print an error, the name of the program must be equivalent to our `argv[0]`(see below).
 Example of error with `sh`:
@@ -49,7 +49,7 @@ $ echo "qwerty" | ./././hsh
 $
 ```
 
-### List of allowed functions and system calls
+## Allowed Functions
 * `access`(man 2 access)
 * `chdir`(man 2 chdir)
 * `close`(man 2 close)
@@ -81,7 +81,7 @@ $
 * `isatty`(man 3 isatty)
 * `fflush`(man 3 fflush)
 
-### Testing
+## Testing
 Our shell should work like this in interactive mode:
 ```
 $ ./hsh
@@ -106,10 +106,10 @@ hsh main.c shell.c test_ls_2
 $
 ```
 
-### Environment
+## Environment
 Our simple_shell project was tested and compiled on `Ubuntu 14.04 (trusty64)` via Vagrant run through VirtualBox.
 
-### Repository Contents
+## Repository Contents
 This repository contains the following files:
 | **File** | **Description** |
 | -------- | --------------- |
@@ -124,7 +124,7 @@ This repository contains the following files:
 | tokenize.c | Tokenizes the user inputted arguments to be able to check for commands |
 | utilizers.c | Contains more custom helper functions like strlen |
 
-### Description of functions
+## Description of Functions
 | **Function** | **Description** |
 | -------- | ----------- |
 | `char *getlinefxn()` | This function gets the user input and stores it in a buffer to be tokenized |
@@ -141,17 +141,17 @@ This repository contains the following files:
 | `char *_strcat(char *dest, char *src)` | Custom function to concatenate two strings |
 | `int _strlen(char *s)` | Custom function to get the length of a string |
 
-### Compilation
+## Compilation
 This code was compiled using GNU Compiler Collection (gcc) with the following flags: `gcc -Wall -Werror -Wextra -pedantic -g3 *.c -o hsh`
-###### Example commands
+###### Example Commands
 ```
 TalkToMe$ ls
 AUTHORS envfxn.c exitfxn.c handlepath.c holberton.h linestore.c README.md shellentry.c strcompare.c tokenize.c utilizers.c
-TalkToMe$ 
+TalkToMe$
 ```
-### Notes
+## Notes
 This shell is a very simple interactive shell, it does not handle special characters
 
-### Authors
-[Jacob Biehler](https://github.com/biehlerj)
+## Authors
 [Lindsey Hemenez](https://github.com/hemenez)
+[Jacob Biehler](https://github.com/biehlerj)
