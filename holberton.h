@@ -14,6 +14,7 @@ typedef struct op
 } built;
 
 #include <stdio.h>
+#include <sys/stat.h>
 #include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -27,18 +28,20 @@ typedef struct op
 extern char **environ;
 
 char *getlinefxn();
-char **tokenfxn(char *buff);
+char **tokenfxn(char *buff, int count);
 int _strcmp(char *s1, char *s2);
 void exitfxn(char *buff, char **commands);
 void envfxn(char *buff, char **commands);
 int builtinfxn(char *buff, char **commands);
-char *find_path(char *command);
-char **tokenize_path(unsigned int index, char *s);
-int path_strcmp(char *s);
-unsigned int path_counter(char *s, const char *delimiter);
-char **token_help(char *path, const char *delimiter, int path_count);
-int _strlen(char *s);
-char *_strcat(char *dest, char *src);
+char *loopenvironment();
+char *concat(char *token, char **tokens, char *commands);
+char *_strcpy(char *dest, char *src);
 char *_strdup(char *str);
+int ptrcounter(char *buff);
+int _strcmp(char *s1, char *s2);
+char *getpath(char *commands);
+char *_strcat(char *dest, char *src);
+int _strlen(char *s);
+void piderror(pid_t pid, char *buff, char **commands);
 
 #endif
