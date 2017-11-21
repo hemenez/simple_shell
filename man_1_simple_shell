@@ -1,8 +1,8 @@
 .\" Man page for simple_shell
-.\" Contact 231@holbertonschool.com to correct errors or typos
-.TH simple_shell 1 "18 November 2017" "1.0" "Simple_Shell Program Manual"
+.\" Contact 252@holbertonschool.com to correct errors or typos
+.TH simple_shell 1 "20 November 2017" "1.0" "Simple_Shell Program Manual"
 .SH NAME
-simple_shell - command interpreter (shell).
+hsh - command interpreter (shell).
 .SH SYNOPSIS
 .B ./hsh [enter/return] command [option] [option] [file/directory name] ...
 .PP
@@ -24,13 +24,13 @@ simple_shell - command interpreter (shell).
 .PP
 .B int main(void);
 .SH DESCRIPTION
-The simple_shell is a simple command line interpreter for the system. It takes in commands such as ls, pwd, echo, grep, exit, as well as builtins like cd. 
+The hsh shell is a simple command line interpreter for the system. It takes in commands such as ls, pwd, echo, grep, exit, as well as builtins like cd. 
 .BI Overview
 The shell is a program that reads lines from a file or the terminal, interprets them, and executes other commands. The simple_shell is a command line interface (CLI) that uses alphanumeric characters typed into the command line to provide instructions and data to the operating system. The simple_shell takes in a variety of commands including builtins and standard commands like ls, echo, pwd, etc.
 .PP
-.B About the simple_shell
+.B About the hsh shell
 .PP
-The simple_shell is based on the shell created by Ken Thompson at Bell Labs. The first shell
+The hsh shell is based on the shell created by Ken Thompson at Bell Labs. The first shell
 .I (sh)
 was distributed with versions 1 through 6 of Unix. The Unix shell laid the groundwork for modern Unix shells with things such as piping, simple control structures, and wildcarding. The simple_shell is much more rudimentary than the Thompson shell as it can only take commands, written with the full path or by searching for the path, and options. The simple_shell mirrors as closely as possible the Thompson shell.
 .PP
@@ -41,7 +41,7 @@ When ./hsh is called the shell is put into interactive mode. An interactive shel
 The shell interprets the words it reads according to a language. The simple_shell reads the first first word of a line and if that word is not a reserved word, then the simple_shell has recognized a simple command. Else, a complex command or some special construct may have been recognized.
 .PP
 .B Path Search
-When the simple_shell searches for a command, it first looks to see if it has a shell function by that name. It then searches for a builtin function by that name and if it is not found then there are two possible outcomes:
+When the simple shell searches for a command, it first looks to see if it has a shell function by that name. It then searches for a builtin function by that name and if it is not found then there are two possible outcomes:
 1. Command names containing slashes are executed without searching
 2. The simple_shell searches each entry in the environment variable PATH for the command. The value of the PATH variable should be a series of entries separated by colons, each of which consits of a directory name. The current directory name may be indicated implicitly by an empty directory name or a period.
 .PP
@@ -50,29 +50,24 @@ env 	prints the environment
 exit	exits the interactive simple_shell and any processes running.
 .PP
 .SH EXIT STATUS
-Errors that are detected by the simple_shell, ie spelling, will cause the shell to exit with zero status.
+Exiting the shell will exit with zero status.
 .SH EXAMPLE
 ./hsh
 .PP
 TalkToMe$ ls -l
 .PP
 [lists the files and directories in the current directory in long format]
-TalkToMe$ pwd
-.PP
-[prints the current working directory]
 .PP
 TalkToMe$ exit
 .PP
-[exits the first command]
+[exits the shell]
+.SH OTHER
 .PP
-TalkToMe$ exit
-.PP
-[exits the second command]
-.PP
-TalkToMe$ exit
-.PP
-[exits the simple_shell]
+Aliases are not currently supported.
+.SH REPORTING BUGS
+Please report bugs to 252@holbertonschool.com
 .SH SEE ALSO
-.R dash(1) dash
+.R sh
+.R dash(3)
 .SH AUTHORS
 Jacob Biehler (231@holbertonschool.com) & Lindsey Hemenez (252@holbertonschool.com)
