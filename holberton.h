@@ -20,7 +20,10 @@ typedef struct op
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <sys/stat.h>
+
 #define DELIM " \t\r\n\a"
+#define BUFFERSIZE 1024
 
 extern char **environ;
 
