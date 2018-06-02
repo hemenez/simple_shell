@@ -1,7 +1,7 @@
 ## Simple_Shell Project
 
 ## Synopsis
-Thank you for taking the time to check out our Simple Shell project. This project was completed with the help of Holberton School. It is based on the initial UNIX shell that was originally created by Ken Thompson. This project is seen as a right of passage in the Holberton culture and it was an honor having the opportunity to do it. Please note: this project is still currently in the works as well as this README. If you see any missing information that you would like to know more of, please email 252@holbertonschool.com.
+Thank you for taking the time to check out our Simple Shell project. This project was completed with the help of Holberton School. It is based on the initial UNIX shell that was originally created by Ken Thompson. This project is seen as a right of passage in the Holberton culture and it was an honor having the opportunity to do it. Please note: this project is still currently in the works as well as this README. If you see any missing information that you would like to know more of, please email lindseyhemenez@gmail.com.
 
 ## Learning Objectives
 Through this project the authors learned:
